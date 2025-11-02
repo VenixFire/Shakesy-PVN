@@ -17,7 +17,7 @@ define r = Character("Rosalind") #As You Like It
 
 #define male characters
 define h = Character("Hamlet") #Hamlet
-    # Expressions: basic, talking, dramatic
+    # Expressions: basic, talking, dramatic, freaked, smile
 
 define a = Character("Iago") #Othello
     # Expressions: basic, talking, winking
@@ -229,7 +229,7 @@ label Answers4:
 
     show Goneril talking
 
-    g "I have a thing for rare fragrances. I collect vials with all kind of oils, some deadly alluring."
+    g "I have a thing for rare fragrances. I collect vials with all kinds of oils, some deadly alluring."
 
     show Hamlet talking
 
@@ -241,7 +241,7 @@ label Answers4:
 
     show Iago talking
 
-    a "I adore tha banter of a crowded night in the tavern. My fellows are bound to do no good on such a day."
+    a "I adore the banter of a crowded night in the tavern. My fellows are bound to do no good on such a day."
 
     a "Trouble tends to follow them, quite entertaining trouble."
 
@@ -715,13 +715,327 @@ label GonerilFailure:
 
     g "I'll easily find another who actually has something to offer."
 
+    "You answered below Goneril's interest level, I must ask you to say your goodbyes and leave. (If she'll give you any more time.)"
+
     jump StoryEndLose
 
 # END GONERIL SECTION /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
 
 label HamletDate:
 
+    show Hamlet smile
+
+    "A young man leaves the curtains. His face is handsome and yet weary; his eyes are particulary tired, darkly adorned by eyebags."
+
+    "He gazes at the audience paranoically until his eyes turn to you. His mouth turns into coy smile as he greets you."
+
+    show Hamlet talking
+
+    h "It's pleasure to meet you. The name is Hamlet."
+
+    h "I suppose it's time for me to understand whether or not it's worth it for me to ally myself to your person."
+
+label HamletQ1:
+
+    h "Are you in any way affilated with the current king of Denmark?"
+
+    menu:
+        "His eyes tighten as he waits for your answer?"
+
+        "King Claudius? I would never affiliate myself with that geezer. (+10)":
+            $ LoveScore += 10
+            jump HamletQ1_1
+        "Denmark?? I never heard of her. (-10)":
+            $ LoveScore -= 10            
+            jump HamletQ1_2
+        "I don't know what you are talking about, the only things I want to affiliate myself with are your pants haha.":
+            $ LoveScore += 5
+            jump HamletQ1_3
+
+label HamletQ1_1:
+
+    show Hamlet talking
+
+    h "He is a wretch. Our temperaments align in that matter."
+    
+    "His smile feels more trusting than it was before."
+
+    jump HamletQ2
+
+label HamletQ1_2:
+
+    show Hamlet dramatic
+
+    h "You are obviously lying. There is a kind of confession in your looks which your modesties have not craft enough to color"
+
+    jump HamletQ2
+
+label HamletQ1_3:
+
+    show Hamlet talking
+
+    h "Your response is much too avoidant for my liking. Still, there is some value in your words, despite their bashfulness... "
+
+    jump HamletQ2
+
+label HamletQ2:
+
+    h "Wait."
+
+    h "Do you hear it? The cries of my father? His bellowing voice demanding revenge?"
+
+    menu:
+        h "Swear by my sword! You won't tell anyone about what you hear tonight, right? You hear the voice right??"
+
+        "The ghost of your father? I see... I'll swear, just stop screaming. (+0)":
+            # LoveScore Unchanged.
+            jump HamletQ2_1
+        "Oh I'll touch your sword all right. (+10)":
+            $ LoveScore += 10 #no fucking way lmfaoooo
+            jump HamletQ2_2
+        "What voice? (-10)":
+            $ LoveScore -= 10
+            jump HamletQ2_3
+
+label HamletQ2_1:
+
+    show Hamlet freaked
+
+    h "You doubt me? I vow to you that this apparition is real. You can rest easy as you swear, I promise."
+
+    jump HamletQ3
+
+label HamletQ2_2:
+
+    show Hamlet talking
+
+    h "Good. It is done. Rest, rest,  perturbèd spirit, they have sworn."
+
+    h "I express my love toward thy gesture"
+
+    jump HamletQ3
+
+label HamletQ2_3:
+
+    show Hamlet dramatic
+
+    h "Swear! You hear it do you not? It resounds so strongly over our stage..."
+
+    jump HamletQ3
+
+label HamletQ3:
+
+    show Hamlet talking
+
+    h "I pologize for the outburst." 
+    
+    h "This is a pressing matter and there are too many eyes watching us at the moment."
+
+    "Hamlet approaches you, leaning his face toward your ears. He whispers."
+
+    h "The truth is I'm pretending to be crazy. My uncle mustn't know I plan on killing him!"
+
+    h "My father's ghost has told me he was poisoned by my uncle! I must take revenge!!"
+
+    h "And for that reason, you need to go along with this."
+
+    h "As I pretend to be crazy on the game show, I'll lead the cronies of the court astray! I'm just pretending! Trust me!"
+
+    menu:
+        "trust him?"
+
+        "I'm calling the cops (+0)":
+            #LoveScore unchanges
+            jump HamletQ3_1
+        "Oh so you are not actually crazy, you are just pretending to be crazy because your dead dad's ghost has told you that your uncle killed him and now you need to avenge him... That makes perfect sense! (+10)":
+            $ LoveScore += 10
+            jump HamletQ3_2
+        "So you're crazy and hot, the night couldn't get better. (-5)":
+            $ LoveScore -= 5
+            jump HamletQ3_3
+
+label HamletQ3_1:
+
+    show Hamlet freaked
+
+    h "No! We can't let them know about Claudis' plan yet. Call them after I figure out more about it"
+
+    jump HamletQ4
+
+label HamletQ3_2:
+
+    show Hamlet talking 
+
+    h "Yeah, that's it!"
+
+    jump HamletQ4
+
+label HamletQ3_3:
+
+    show Hamlet freaked
+
+    h "I'm just pretending! I'm not crazy!!!"
+
+label HamletQ4:
+
+    h "So… You come here often?" 
+
+    menu:
+        "Hamlet tries to play along to the show and fails miserably. He looks at you expecting a reply."
+
+        "No. (-5)":
+            $ LoveScore -= 5
+            jump HamletQ4_1
+        "Yeah, going to dating shows is something I do on a regular basis.":
+            # LoveScore Unchanged
+            jump HamletQ4_2
+        "Hamlet, doubt thou the stars are fire, doubt that the sun doth move, doubt truth to be a liar, but never doubt I love (+10)":
+            $ LoveScore += 10
+            jump HamletQ4_3
+
+
+label HamletQ4_1:
+    
+    show Hamlet dramatic
+
+    h "Oh, I see." 
+
+    "Hamlet looks down to the ground."
+
+    jump HamletQ5
+
+label HamletQ4_2:
+
+    show Hamlet talking
+
+    h "Huh, I didn't peg you as the type."
+
+    jump HamletQ5
+
+label HamletQ4_3:
+
+    show Hamlet smile
+
+    h "I am smitten! Your words ignite a fire within my heart."
+
+    jump HamletQ5
+
+label HamletQ5:
+
+    h "This dating show thing has been fun and all but there is one question that holds most valuable."
+
+    h "My one chief task, the only one I must take, one I have engraved upon my mind above all else must be accomplished. Will you help me or stand in my way?"
+
+    menu: 
+
+        "Let's kill that old man. (+10)":
+            $ LoveScore += 10
+            jump HamletQ5_1
+        "Dude killing people is not cool. You are sick in the head, this is not what you should be doing. Hamlet you need a psychologist. (-10)":
+            $ LoveScore -= 30
+            jump HamletQ5_2
+        "Don't make me a part of this. We can still kiss though. (+5)":
+            $ LoveScore += 5
+            jump HamletQ5_3
+
+label HamletQ5_1:
+
+    show Hamlet smile
+
+    h "You get it! Let's do it!!"
+
+    jump HamletEndQuestions
+
+label HamletQ5_2:
+
+    show Hamlet dramatic
+
+    h "So you really don't believe me...? I guess this will never work out..."
+
+    jump HamletEndQuestions
+
+label HamletQ5_3:
+
+    show Hamlet talking
+
+    h "Your neutral non-chalant approach toward this matter is not wholly unpleasant to me."
+
+    jump HamletEndQuestions
+
+# HAMLET END QUESTIONS /-/-/-/-/-/-/--//-/-/-/-/-/--/-/-/-/-//---///-/-/--/-
+
+label HamletEndQuestions:
+
+    h "I have made my choice. I know whether or not you shall come with me to Denmark tonight"
+
+    if LoveScore >= 30:
+        jump HamletSuccess
+    else:
+        jump HamletFailure
+
+
+label HamletSuccess:
+
+    show Hamlet smile
+
+    h "I have grown fond of you. Your smile, your humour, your trust upon mine vengeance, they shall propel me forward."
+
+    h " Let us move toward Denmark posthaste!"
+
+    "Hamlet holds your hand as the two of you run out of the show. Soon enough the two of you take a boat toward Denmark."
+
+    "Throughout the journey you spend long, frisky nights together on the boat. Some pirates hijack the trip and they join in on the fun. It was an amazing pleasure filled ride"
+
+    "When you get to Denmark, Hamlet finds out his ex is dead and the mood immediately plummets"
+
+    "The whole thing devolves into a brawl between Hamlet and the ex’ brother in a court audience with the king."
+
+    "Hamlet and the brother stab themselves, the queen dies from poison and you find out king Claudius had plotted all of this. "
+
+    "Before dying, Hamlet performs a beautiful soliloquy and kisses you in the mouth. Tragic. At least you got to kill the king. "
+
+
+label HamletFailure:
+
+    show Hamlet talking
+
+    h "You have proven to be most untrustworthy"
+
+    "Hamlet brandishes his sword. It glistens through the show’s lighting, He glares at you with a threatening scowl."
+
+    show Hamlet freaked
+    
+    h "Leave now or I shall treat you as an enemy. We should not meet ever again."
+
+    "Hamlet seriosity preemptively empties the show. No one desires to see him having a mental breakdown and you soon quit it too."
+
+    "You live the rest of your days in the same manner you had ever done. Your meeting with Hamlet was but a fleeting moment in your life, one you would rather forget."
+
+    "Later on, you read about a bloodbath that happened in Denmark. Hamlet and many others have died in a tragic accident."
+
+    "Perhaps it was good that you never started dating him. Tragedy would have soon taken you too. "
+        
+
+# END HAMLET
+
+
+
+# START ISABELLA
 label IsabellaDate:
+
+    "The curtain draws to reveal a younger woman dressed head to toe in a black nun outfit, white outlining her face as an undergarment."
+
+    "Her eyes shine bright as her defining feature standing out in contrast to the black that wraps around her."
+
+    "Her face is more serious with a slight upturn of her lips, as she greets you for the first time..."
+
+    i "Hello, I'm Isabella. It's nice to put face to the voice I've been listening to. I do have a couple questions to ask you to see if we'd be a good fit."
+
+    menu: 
+        i "One thing you must know is that I cherish honesty and moral integrity, with that being said..."
+
+        "test quetsion.":
+            jump IsabellaDate
 
 label IagoDate:
 
