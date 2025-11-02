@@ -1031,12 +1031,130 @@ label IsabellaDate:
 
     i "Hello, I'm Isabella. It's nice to put face to the voice I've been listening to. I do have a couple questions to ask you to see if we'd be a good fit."
 
+    i "One thing you must know is that I cherish honesty and moral integrity, with that being said..."
+
+
+label IsabellaQ1:
+
+    i "I hold dear to me my sense of honor and nobility, have you ever gone against your own honor/beliefs for someone you loved?"
+
+    i " I once was asked to do so and my opinion on them was changed."
+
+    menu:
+        "Have you ever gone against your own honor/beliefs for someone you loved?"
+
+        "I'm sorry that was asked of you, and yes I have had someone ask the same. I followed my beliefs and honor and stayed true to myself. (+5)":
+            $ LoveScore += 5
+            jump IsabellaQ1_1
+        "If I loved them enough I would, I mean my sense of honor isn't above those I love":
+            # LoveScore Unchanged
+            jump IsabellaQ1_2
+        "It would have to depend on what's asked of me, but honestly that's too deep of a question and I'm not going to reveal something like that to you":
+            $ LoveScore -= 5
+            jump IsabellaQ1_3
+
+label IsabellaQ1_1:
+
+    show Isabella smile
+
+    i "Thank you, yes it was a challenge but I overcame it."
+
+    i " I like the sense of honor and believing in yourself to be who you are rather than change for another... Wondering if you'd ever change for me though?"
+
+    jump IsabellaQ2
+
+label IsabellaQ1_2:
+
+    show Isabella upset 
+
+    i "What if it was something that ran deeper than you'd want? Something that would change you for good? Not a bad answer but not an amazing one either"
+
+    jump IsabellaQ2
+
+label IsabellaQ1_3:
+
+    show Isabella upset
+
+    i "It's deep but important. If you can't answer honestly, I don't think we'll see eye to eye..."
+
+    jump IsabellaQ2
+
+
+label IsabellaQ2:
+
+    show Isabella talking
+
+    i "Well, that was a good look into who you are, I feel like I just scratched the surface and definitely want to know more about your thoughts.. and a few other things ;)"
+
     menu: 
-        i "One thing you must know is that I cherish honesty and moral integrity, with that being said..."
+        i "How much is physical attraction necessary for you? Say if passion was second in line to integrity and chastity?"
 
-        "test quetsion.":
-            jump IsabellaDate
+        "If they aren't up to my standards, goodbye! (-10)":
+            $ LoveScore -= 10
+            jump IsabellaQ2_1
+        "I mean beauty can't hurt, but the respect one must hold to look within and strive for their moral compass is a good quality to have (+5)":
+            $ LoveScore += 5
+            jump IsabellaQ2_2
+        "Physical attraction is surface level, what matters is what they have within. If they pride themselves on their moral compass and chastity and continue to hold true to themselves that is all I'd want. (+10)"
+            $ LoveScore += 10
+            jump IsabellaQ2_3
 
+label IsabellaQ2_1:
+
+    show Isabella upset
+
+    i "Oh, so say then this person you love deeply and has all your dream qualities yet isn't up to your standards, you'd send them away? How unfortunate, it must be hard being alone all the time then."
+
+    jump IsabellaQ3
+
+label IsabellaQ2_2:
+
+    show Isabella talking
+
+    i "True beauty is easily appreciated but one's respect for themselves is clearly more important, at least you can try and understand."
+
+    jump IsabellaQ3
+
+label IsabellaQ2_3:
+
+    show Isabella smile
+
+    i "wow, your honesty is mesmerizing me"
+
+    jump Isabella Q3
+
+label IsabellaQ3:
+
+    show Isabella talking 
+
+    i "I'm glad we can get a few of my more serious questions out of the way, now to ask you some more meaningful questions. Remember all I ask is honesty from you."
+
+    menu:
+        i "How thin is your line in perception of sin vs. passion?... Asking for a friend of course!"
+
+        "Good question, that line will be extremely thick and passion will clearly stay on one side and sin will stay far away from my soul and body. (+5)"
+            $ LoveScore += 5
+            jump IsabellaQ3_1
+        "There is no line, and that line will be crossed without a second thought. (-10)"
+            $ LoveScore -= 10
+            jump IsabellaQ3_2
+        "There of course is a line, but if I were given the keys to your chastity belt.. things could get a smidge hazy. (+10)"
+            $ LoveScore += 10
+            jump IsabellaQ3_3
+
+label IsabellaQ3_1:
+
+label IsabellaQ3_2:
+
+label IsabellaQ3_3:
+
+
+
+
+
+
+# END ISABELLA
+        
 label IagoDate:
 
 label BassanioDate:
