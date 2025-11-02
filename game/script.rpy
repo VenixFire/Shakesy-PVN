@@ -1095,7 +1095,7 @@ label IsabellaQ2:
         "I mean beauty can't hurt, but the respect one must hold to look within and strive for their moral compass is a good quality to have (+5)":
             $ LoveScore += 5
             jump IsabellaQ2_2
-        "Physical attraction is surface level, what matters is what they have within. If they pride themselves on their moral compass and chastity and continue to hold true to themselves that is all I'd want. (+10)"
+        "Physical attraction is surface level, what matters is what they have within. If they pride themselves on their moral compass and chastity and continue to hold true to themselves that is all I'd want. (+10)":
             $ LoveScore += 10
             jump IsabellaQ2_3
 
@@ -1121,7 +1121,7 @@ label IsabellaQ2_3:
 
     i "wow, your honesty is mesmerizing me"
 
-    jump Isabella Q3
+    jump IsabellaQ3
 
 label IsabellaQ3:
 
@@ -1132,22 +1132,130 @@ label IsabellaQ3:
     menu:
         i "How thin is your line in perception of sin vs. passion?... Asking for a friend of course!"
 
-        "Good question, that line will be extremely thick and passion will clearly stay on one side and sin will stay far away from my soul and body. (+5)"
+        "Good question, that line will be extremely thick and passion will clearly stay on one side and sin will stay far away from my soul and body. (+5)":
             $ LoveScore += 5
             jump IsabellaQ3_1
-        "There is no line, and that line will be crossed without a second thought. (-10)"
+        "There is no line, and that line will be crossed without a second thought. (-10)":
             $ LoveScore -= 10
             jump IsabellaQ3_2
-        "There of course is a line, but if I were given the keys to your chastity belt.. things could get a smidge hazy. (+10)"
+        "There of course is a line, but if I were given the keys to your chastity belt.. things could get a smidge hazy. (+10)":
             $ LoveScore += 10
             jump IsabellaQ3_3
 
 label IsabellaQ3_1:
 
+    show Isabella talking
+
+    i "I'm glad you understand the line and give space for said line. So there's no way around that thick line you just drew?"
+
+    jump IsabellaQ4
+
 label IsabellaQ3_2:
+
+    show Isabella upset
+
+    i "I see, you don't exactly fit my thoughts on this line."
+
+    jump IsabellaQ4
 
 label IsabellaQ3_3:
 
+    show Isabella smile 
+    
+    i "Your candor is appreciated, I will take that into consideration.. ;)"
+
+    jump IsabellaQ4
+
+label IsabellaQ4:
+
+    i "I will have to say, you have to keep this between us of course but if you continue to or start answering my questions correctly, you'd have the keys to my chastity (It's not gonna be locked for that long.. potentially)"
+
+    menu:
+        i "Do you have any siblings, if so how far would you go for them? Would you go against them?"
+
+        "I do have a sibling, and I would go pretty far for them as long as I stay within reach of my morals which I stand strong for. (+10)":
+            $ LoveScore += 10
+            jump IsabellaQ4_1
+        "I  would go kinda far, but honestly I'd rather just let them solve things for themselves, love them but it can be a lot. (+0)":
+            $ LoveScore += 0
+            jump IsabellaQ4_2
+        "I don't have any siblings, and if I did I'd only look out for myself honestly. (-5)":
+            $ LoveScore -= 5
+            jump IsabellaQ4_3
+
+label IsabellaQ4_1:
+
+    i "hmm I find myself agreeing with you, glad we can agree and stay on the same page... my keys are getting closer to being yours."
+
+    jump IsabellaQ5
+
+label IsabellaQ4_2:
+
+    i "I can understand what you're saying, they should try and figure it out themselves, but sometimes you must lean on those around you or those above in the heavens..."
+
+    jump IsabellaQ5
+
+label isabellaQ4_3:
+
+    i "So an only child, if that wasn't obvious before it certainly is now, quite self centered if I must say."
+
+    jump IsabellaQ5
+
+label IsabellaQ5:
+
+    i "I have one final question for you, I feel like I've slowly started to open your doors and see within. I must say I’ve learned a lot and maybe just maybe you’ll get lucky and we can spend a lovely evening walking the gardens outside my church."
+
+    menu:
+        i "When you think of taking me out, where would you take me? (are the keys with us potentially?"
+
+        "I would have to take you to this tavern that I love! The music is insane, the vibe inside is immaculate, and you might for once find yourself letting loose. (-10)":
+            $ LoveScore -= 10
+            jump IsabellaQ5_1
+        "Hmm I have this spot I like to go to when I'm thinking, no one's ever been there before, you'd be the first girl I'd take there.. (-5)":
+            $ LoveScore += 5
+            jump IsabellaQ5_2
+        "I know these beautiful statues we can look at near a church you may love, and we can end the evening sharing a delicious meal with a view of the surrounding mountains. It will be a slight walk from the church so we can keep things away from any moral issues. (+10)":
+            $ LoveScore += 10
+            jump isabellaQ5_3
+
+label IsabellaQ5_1:
+    i "Unfortunately I would have to disagree with that idea, sounds like my kind of nightmare."
+
+    jump IsabellaEndQuestions
+
+label IsabellaQ5_2:
+
+    i "At least you’re trying to make me feel special. Though how can I believe you?"
+
+    jump IsabellaEndQuestions
+
+label IsabellaQ5_3:
+
+    i "That sounds like quite a lovely evening, I can easily see this working."
+
+    jump IsabellaEndQuestions
+
+label IsabellaEndQuestions:
+
+    if LoveScore >= 30:
+        jump IsabellaSuccess
+    else:
+        jump IsabellaFailure
+
+label IsabellaSuccess:
+    "You answered enough questions correctly to peak Isabella's interest!"
+
+    i "I'm really happy we are going to speak, I'd love you to accompany me to these lovely gardens where we can continue to discuss our morals and beliefs."
+
+    jump StoryEndWin
+
+label IsabellaFailure:
+
+    "Unfortunately Isabella does not see this as a match."
+
+    i "Thank you for your time, but I don't see us working out. I have more standards in myself than I’d trust to be around you, I think you could use a little growth before we'd even begin to work out."
+
+    jump StoryEndLose
 
 
 
