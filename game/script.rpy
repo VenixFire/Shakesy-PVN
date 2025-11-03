@@ -986,6 +986,7 @@ label HamletSuccess:
 
     "Before dying, Hamlet performs a beautiful soliloquy and kisses you in the mouth. Tragic. At least you got to kill the king. "
 
+    jump StoryEndWin
 
 label HamletFailure:
 
@@ -1007,6 +1008,7 @@ label HamletFailure:
 
     "Perhaps it was good that you never started dating him. Tragedy would have soon taken you too. "
         
+    jump StoryEndLose
 
 # END HAMLET
 
@@ -2012,6 +2014,8 @@ label RosalindSuccess:
 
     "Her dad gives the blessing to your marriage and you spend the rest of your life living in a cozy cottage in the middle of the woods alongside Rosalind. What a beautiful end!"
 
+    jump StoryEndWin
+    
 label RosalindFailure:
 
     show Rosalind smile
@@ -2028,6 +2032,7 @@ label RosalindFailure:
 
     "You can’t say you are not jealous but unfortunately, there’s nothing you can do."
 
+    jump StoryEndLose
 
 
 label StoryEndWin:
