@@ -1265,7 +1265,334 @@ label IsabellaFailure:
         
 label IagoDate:
 
+    "An older man with a  tall and muscular build. He wears his long hair in a clean and sophisticated bun. His face is constantly in an etiquette yet question manner, as if constantly thinking of his next move."
+
+    " A clean attire and almost completely shaven face, with a sharp mustache and goatee framing his jaw. The clothes loosely fit his frame while still allowing others to see his strength, garnished with a delicate flower."
+
+    menu: 
+        a "Would you stand by my side no matter what?"
+
+        "Of course, you always stand with those you love. (+10)":
+            $ LoveScore += 10
+            jump IagoQ1_1
+        "Depends on what it is. (-10)":
+            $ LoveScore -= 10
+            jump IagoQ1_2
+        "Only if you stand by mine. (0)":
+            $ LoveScore += 0
+            jump IagoQ1_3
+
+label IagoQ1_1:
+
+    a "Good, smart answer."
+    jump IagoQ2
+
+label IagoQ1_2:
+
+    a " You seem too hesitant, I don't like that."
+    jump IagoQ2
+
+label IagoQ1_3:
+
+    a "You're clever, maybe too clever."
+
+    jump IagoQ2
+
+label IagoQ2:
+
+    menu: 
+        a "Are people still good, if they commit heinous acts for good reasons?"
+
+        "Only if those acts are equivalent to what they are against. (0)":
+            $ LoveScore += 0
+            jump IagoQ2_1
+        "No, people are only good if they become the bigger person. (-10)":
+            $ Lovescore -= 10
+            jump IagoQ2_2
+        "If someone wrongs you, then you have the right to get them back. (+10)":
+            $ LoveScore += 10
+            jump IagoQ2_3
+
+
+label IagoQ2_1:
+
+    a "That is all up to opinion, is not."
+
+    jump IagoQ1_3
+
+label IagoQ2_2:
+
+    a "That mindset is weak."
+
+    jump IagoQ1_3
+
+label iagoQ2_3:
+
+    a "A true leader's understanding."
+
+    jump IagoQ3
+
+label IagoQ3:
+
+    menu: 
+        a "Do you think love is about connection, or control?"
+
+        "It is always about connection, if you are controlling them, then that isn't real love. (-10)":
+            $ LoveScore -= 10
+            jump IagoQ3_1
+        "If you control them in a matter that helps them, then I say that it is both. (0)":
+            $ LoveScore += 0
+            jump IagoQ3_2
+        "If you can't control them, then they don't trust you, and a relationship is all about trust.":
+            $ LoveScore  += 10
+            jump IagoQ3_3
+
+label IagoQ3_1:
+
+    a "What do you truly know about love then?"
+
+    jump IagoQ4
+
+label IagoQ3_2:
+
+    a "I am a very helpful man."
+
+    jump IagoQ4
+
+label IagoQ3_3:
+
+    a "Exactly, if you trust me, then let me lead."
+
+    jump IagoQ4
+
+label IagoQ4:
+
+    menu:
+        a "How much of yourself would you give up, if it meant you would be chosen?"
+
+        "I wouldn't give anything about myself up, if I did, then who would I even be. (0)":
+            jump IagoQ4_1
+        "Everything, I want to be seen. (-10)":
+            $ LoveScore -= 10
+            jump IagoQ4_2
+        "Only what I can live without. (+10)":
+            $ LoveScore += 10
+            jump IagoQ4_3
+
+label IagoQ4_1:
+
+    a "Dire circumstances cause dire sacrifices."
+    jump IagoQ5
+
+label IagoQ4_2:
+
+    a "Weakness isn't cute."
+    jump IagoQ5
+
+label IagoQ4_3:
+
+    a "I like that you can wage for power."
+    jump IagoQ5
+
+label IagoQ5:
+
+    menu: 
+        a "When people look at me, they see a man who's simple. Do you fall for people's images or what lies beneath?"
+
+        "I never fall for either as someone's true character will always shine through in the end. (-10)":
+            $ LoveScore -= 10
+            jump IagoQ5_1
+        "Those who fall for someone's image, are right where they belong. (+10)":
+            $ LoveScore += 10
+            jump IagoQ5_2
+        "I try to look past their faces, but sometimes I can become stuck. (0)":
+            jump IagoQ5_3
+
+label IagoQ5_1:
+
+    a "You are very confident, aren't you?"
+    jump IagoEndQuestions
+
+label IagoQ5_2:
+
+    a "I can tell you have a lot of layers to yourself."
+    jump IagoEndQuestions
+
+label IagoQ5_3:
+
+    a "Just like a fly in honey."
+    jump IagoEndQuestions
+
+
+label IagoEndQuestions:
+
+# END IAGO
+
+
 label BassanioDate:
+
+    "A tall man, with a muscular build. Not too many thoughts behind his eyes, but a spark of fiery life. A 24/7 smirk lies across his face as he stands shirtless, showing off his best assets. His brown messy hair lays across his face, framing just enough, so you can never see the full picture."
+
+label BassanioQ1: 
+    menu:
+        b "Would you still love me if I lost my 6-pack?"
+
+        "Absolutely not, your personality means more than abs ever could. (- 10)":
+            $ LoveScore -= 10
+            jump BassQ1_3
+        "Lowkey... Yeah. (0)":
+            $ LoveScore -= 0
+            jump BassQ1_2
+        "Trick question, you'll never lose your abs. (+ 10)":
+            $ LoveScore += 10
+            jump BassQ1_1
+
+label BassQ1_1:
+
+    b "Ahhh, I love that...not."
+
+    jump BassQ2
+
+label BassQ1_2:
+
+    b "Understandable, me too."
+
+    jump BassQ2
+
+label BassQ1_3:
+
+    b "Ding Ding, you are smart as you are pretty."
+
+    jump BassQ2
+
+label BassQ2:
+
+    menu: 
+        b "Wouldst thou be impressed if my horse were, how do you say, metaphorical?"
+
+        "Soooo, you're broke. (0)":
+            jump BassQ2_1
+        "Wouldst thou care if I then became a Harlet? (-10)":
+            $ LoveScore -= 10
+            jump BassQ2_2
+        "Nah, I got daddy's money. (+ 10)":
+            $ LoveScore += 10
+            jump BassQ2_3
+
+label BassQ2_1:
+
+    b "They say money doesn't buy you happiness, and they are hitting that from every angle, because I'm happy as shit."
+
+    jump BassQ3
+label BassQ2_2:
+
+    b "Um, duh... whore"
+
+    jump BassQ3
+label BassQ2_3:
+
+    b "You mean, we got daddy's money."
+
+    jump BassQ3
+
+label BassQ3:
+    menu:
+        b "Lets say you have to hypothetically be a third wheel all the time with my boy Antonio and I, you cool with that?"
+
+        "As long as all your attention isn't on him. (- 10)":
+            $ LoveScore -= 10
+            jump BassQ3_1
+        "The more the merrier. (0)":
+            jump BassQ3_2
+
+        "Why third wheel, you two can just hangout and have fun all the time! (+ 10)":
+            $ LoveScore += 10
+            jump BassQ3_3
+
+label BassQ3_1:
+
+    b "*cough cough* center of attention much (or needy bitch) *cough cough*"
+    jump BassQ4
+
+label BassQ3_2:
+
+    b "Eh okay, you can tag along"
+    jump BassQ4
+
+label BassQ3_3:
+
+    b "As we should"
+    jump BassQ4
+
+label BassQ4:
+
+    menu: 
+        b "Are you familiar with the courting process?"
+
+        "I am not a common courter. (0)":
+            $ LoveScore += 0
+            jump BassQ4_1
+        "Yes, many men try to court me. (- 10)":
+            $ LoveScore -= 10
+            jump BassQ4_2
+        " You seem like you are. (+ 10)":
+            $ LoveScore += 10
+            jump BassQ4_3
+
+label BassQ4_1:
+
+    b "I see, so is it by choice or..."
+    jump BassQ5
+
+label BassQ4_2:
+
+    b "You look the type for that."
+    jump BassQ5
+
+label BassQ4_3:
+
+    b "You callin me hot? ;)"
+    jump BassQ5
+
+label BassQ5:
+
+    menu: 
+        b "Do you think we'd argue over real stuff, or pretend to hate each other for tension?"
+
+        "That all depends on if we truly love each other. (0)":
+            jump BassQ5_1
+        "Duh, real arguments are dumb. (-10)":
+            $ LoveScore -= 10
+            jump BassQ5_2
+        "Both, the only right answer. (+ 10)":
+            $ LoveScore += 10
+            jump BassQ5_3
+
+label BassQ5_1:
+
+    b "Woah there, that's a little deep don't ya think?"
+
+    jump BassQuestionsEnd
+
+label BassQ5_2:
+
+    b "You're a problem."
+    jump BassQuestionsEnd
+
+label BassQ5_3:
+
+    b "See? You get it."
+    jump BassQuestionsEnd
+
+
+label BassQuestionsEnd:
+
+
+
+
+
+#END BASSANIO
+
 
 label RosalindDate:
 
