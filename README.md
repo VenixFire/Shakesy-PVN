@@ -1,7 +1,7 @@
 
 REWRITE:
 
-  A downloadable distribution will be released by the end of the day, but if you don't want to wait you can follow these instructions to download the source code and run it yourself :)
+  A downloadable distribution can be found in the "Full Game Zips" folder. If you want to play the game, you can download this repo using the "<> Code" button and pressing "Download Zip". Once you unzip the game files, you can access the "Full Game Zips" folder and upzip the version made for your computer (Windows or Mac, if you want a linux dist I can get one for you :)). Use the .exe or whatever the mac does (I haven't actually tested the mac version.)
   
   To install and play this video game prototype:
     
