@@ -255,7 +255,7 @@ label Answers4:
     h "The uses of this world all feel so stale and flat to me. Everything grows to be a bore."
 
 
-    I "My sole devotion is prayer to our lord and savior Jesus Christ. He is the only man I'm on my knees for."
+    i "My sole devotion is prayer to our lord and savior Jesus Christ. He is the only man I'm on my knees for."
 
 
     a "I adore the banter of a crowded night in the tavern. My fellows are bound to do no good on such a day."
@@ -2015,7 +2015,7 @@ label RosalindSuccess:
     "Her dad gives the blessing to your marriage and you spend the rest of your life living in a cozy cottage in the middle of the woods alongside Rosalind. What a beautiful end!"
 
     jump StoryEndWin
-    
+
 label RosalindFailure:
 
     show Rosalind smile
