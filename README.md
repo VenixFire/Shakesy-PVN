@@ -1,6 +1,8 @@
 
 REWRITE:
 
+  A downloadable distribution will be released by the end of the day, but if you don't want to wait you can follow these instructions to download the source code and run it yourself :)
+  
   To install and play this video game prototype:
     
       Download and Install Ren'Py Visual Novel Engine v8.4.1: https://www.renpy.org 
