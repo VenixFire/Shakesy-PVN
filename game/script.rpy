@@ -5,25 +5,60 @@
 #Test character from template
 #define e = Character("Eileen")
 
+image curtain_background = "curtain.jpg"
+
 define t = Character("Game Show Host:")
 # define female characters
 define g = Character("Goneril") #King Lear
     # Expressions: basic, talking, angry, smug
 
+image Goneril smug = "Goneril_Smug.png"
+image Goneril talking = "Goneril_talking.png"
+image Goneril angry = "Goneril_upset.png"
+
 define i = Character("Isabella") #Measure for Measure
-    # Expressions: basic, talking
+    # Expressions: basic, talking, smile
+
 define r = Character("Rosalind") #As You Like It
-    # EXpressions: basic, talking
+    # EXpressions: basic, talking, yell, smile, upset
+
+image Rosalind smile = "Rosalind smile.png"
+image Rosalind talking = "Rosalind talking.png"
+image Rosalind yell = "Rosalind yell.png"
+image Rosalind upset = "Rosalind upset.png"
+
+define gany = Character("Ganymeade") #Rosalind
+    # Expressions: talking, smile, upset, yell
+
+image Ganymeade smile = "Ganymeade smile.png"
+image Ganymeade talking = "Ganymeade talking.png"
+image Ganymeade yell = "Ganymeade yell.png"
+image Ganymeade upset = "Ganymeade upset.png" 
 
 #define male characters
 define h = Character("Hamlet") #Hamlet
     # Expressions: basic, talking, dramatic, freaked, smile
 
+image Hamlet talking = "Hamlet_talking.png"
+image Hamlet dramatic = "Hamlet_Dramatic.png"
+image Hamlet freaked = "Hamlet_freaked.png"
+image Hamlet smile = "Hamlet_smile.png"
+
+
 define a = Character("Iago") #Othello
-    # Expressions: basic, talking, winking
+    # Expressions: basic, talking, winking, annoyed, smug
+
+image Iago smug = "Iago_smug.png"
+image Iago talking = "Iago_talking.png"
+image Iago winking = "Iago_smug.png"
+image Iago annoyed = "Iago_annoyed.png"
 
 define b = Character("Bassanio") #Merchant of Venice
-    # Expressions: basic, talking
+    # Expressions: basic, talking, yurr, unimpressed
+
+image Bassanio talking = "Bassanio_talking_nobg.png"
+image Bassanio unimpressed = "Bassanio_unimpressed.png"
+image Bassanio yurr = "Bassanio_yurr_nobg.png"
 
 $ LoveScore
 
@@ -62,6 +97,16 @@ label start:
          #   jump button2
 label Introduction: 
 
+    "Welcome to our project! This game is a demo/prototype using the Ren'Py Visual Novel Engine. If you want to play this game pass the team your email and we'll send you download instructions!"
+
+    "This game is in an incomplete state and is missing assets and may contain bugs."
+
+    "Ok! Time to play!"
+
+    "......"
+
+    scene curtain_background
+
     t "Welcome to the world's most dubious, wild, raunchy, and spiciest dating show: The Greatest Shakespeare Off!!!!!"
 
     t "Tonight we are visited by a most valuable cast, one I'm sure you have all seen before."
@@ -72,7 +117,6 @@ label Introduction:
 
     #Guest introductions
 
-    scene curtain_background
 
     t "Good! Now we move onto the first phase of the game. You may ask questions all of our quests will answer."
 
@@ -103,8 +147,6 @@ label QuestionTime:
             jump Answers5
         "What's your dream date?":
             jump Answers6
-        "What's your biggest turn on?":
-            jump Answers7
         "What's the most important thing in your life?":
             jump Answers8
         "No more questions...":
@@ -115,41 +157,32 @@ label QuestionTime:
 label Answers1:
     #Question: What's your occupation?
 
-    scene CloseToCharacter
-
-    show Goneril talking
 
     g "I'm the eldest daughter of the king of Britain."
 
     g "Going to be the queen. Looking for a man to stand beside me… or behind me."
 
-    show Hamlet talking
 
     h "Just a student; A senior at Wittenberg."
 
     h "It's a shame I haven't seen you around though, would have made school less boring."
 
-    show Isabella talking
 
     i "I'm practicing to be a nun in the Order of Saint Clare."
     
     i "I hope to fully join by the end of the year."
 
-    show Iago talking
 
     a "I'm in the military. I can't say much else but let's just say it's important"
     
-    show Iago winking
 
     a "I might tell you later tonight."
 
-    show Bassanio talking
 
     b "Ex-soldier, ex-scholar, now I'm just having fun."
 
     b "You can slide if you want."
 
-    show Rosalind talking
 
     r "Fleeing my country and looking for a long term situationship this vacay."
 
@@ -160,31 +193,25 @@ label Answers1:
 label Answers2: 
     #Question: Where are you from?
 
-    show Goneril talking
 
     g "I'm a pure blood British royal, living it up in the most ostentatious, luxurious castle."
 
     g "We have a lot of spare beds, dear."
 
-    show Hamlet talking
 
     h "Amidst this world's vilest wards and dungeons, I live in tis worst prison, Denmark."
 
     h "It sucks but perhaps you can make it heaven"
 
-    show Isabella talking
 
     i "In a nunnery."
 
-    show Iago talking
 
     a "Currently in Venice, but I have been all over the world and still haven't seen your bed, love"
 
-    show Bassanio talking
 
     b "Venice! The biggest party city in the world and I'm looking for a fine shyt to party by my side."
 
-    show Rosalind talking
 
     r "I'm hiding in the woods..."
     
@@ -197,27 +224,21 @@ label Answers2:
 label Answers3:
     #Question: What do you look for in a partner?
 
-    show Goneril talking
 
     g "Submissive, easily manipulated charmers who stand at my beck and call"
 
-    show Hamlet talking
 
     h "A person who I can trust above all else. Such a trait is rare in modern society."
 
-    show Isabella talking
 
     i "A frequent church goer. Strong morals and piety are also good."
 
-    show Iago talking
 
     a "A good listener who is non-opinionated and soft spoken. A pretty face couldn't hurt."
 
-    show Bassanio talking
 
     b "A rich fellow who doesn't hide their looks and knows how to have a good time."
 
-    show Rosalind talking
 
     r "Gentle, goody, respectable folk who can totally win a fight when needed to."
 
@@ -227,31 +248,25 @@ label Answers3:
 label Answers4:
     #Question: Do you have hobbies?
 
-    show Goneril talking
 
     g "I have a thing for rare fragrances. I collect vials with all kinds of oils, some deadly alluring."
 
-    show Hamlet talking
 
     h "The uses of this world all feel so stale and flat to me. Everything grows to be a bore."
 
-    show Isabella talking
 
     I "My sole devotion is prayer to our lord and savior Jesus Christ. He is the only man I'm on my knees for."
 
-    show Iago talking
 
     a "I adore the banter of a crowded night in the tavern. My fellows are bound to do no good on such a day."
 
     a "Trouble tends to follow them, quite entertaining trouble."
 
-    show Bassanio talking
 
     b "I have many hobbies, and you could be one of them. But, besides you, I do love hitting the town with my buddies a good ol'wrestle never hurt nobody,"
     
     b "and of course I enjoy cracking open a couple of brewskys with my most inner circle."
 
-    show Rosalind talking
 
     r "I love diving into a good book, especially poetry."
     
@@ -263,27 +278,20 @@ label Answers4:
 label Answers5:
     #Question: Describe yourself with one word
 
-    show Goneril talking
 
     g "Powerful, exemplary, a diva, the fairest, hottest, richest woman in Britain. I could go on though."
 
-    show Hamlet talking
 
     h "I'm naught but a rogue and peasant slave."
 
-    show Isabella talking
 
     i "Pure."
 
-    show Iago talking
 
     a "My friends call me honest but I prefer the term ambitious..."
 
-    show Bassanio talking
-
     b "I'm an alpha, bro."
 
-    show Rosalind talking
 
     r "Articulate. That's my favorite word, by the way."
 
@@ -293,65 +301,49 @@ label Answers5:
 label Answers6: 
     #Question: What's your dream date? 
     
-    show Goneril talking
 
     g "We have a private dinner with exotic spices, a couple glasses of wine, and a long night ahead of us."
 
-    show Hamlet talking
 
     h "Let's watch a play and go on a late night stroll. Plays are my fgavorite way to lay people bare."
 
     h "They can be quite revealing"
 
-    show Isabella talking
 
     i "Attending church service. Brushing hands if we're dating."
 
-    show Iago talking
 
     a "I bring you along for one of my work trips."
 
     a "Picture it: A private boat, two glasses of sctoch, and the open sea."
 
-    show Bassanio talking
 
     b "A wild masquerade party with no one to keep track of the mischief behind the mask and the sheets."
 
-    show Rosalind talking
 
     r "A forest picnic. I bring the bottle, you bring the log- I mean logs..."
 
     jump QuestionTime
 
-label Answers7:
-    #Question: What's your biggest turn on?
-
-    jump QuestionTime
 
 label Answers8: 
     #Question What's the most important thing in your life?
 
-    show Goneril talking
 
     g "Bending people to my will, including you."
 
-    show Hamlet talking
 
     h "I cannot reveal it at this time but it's a commandment that has wiped off all other matters within my mind, one I abide by my sword to follow"
 
-    show Isabella talking
 
     i "The keys to my chastity belt."
 
-    show Iago talking
 
     a "My work. As anyone can tell, I am the most fit to gain ranks, especially with you by my side."
 
-    show Bassanio talking
 
     b "A potential influc of finances, specifically in my directoion... if you catch my drift ;)"
 
-    show Rosalind talking
 
     r "Freedom, the ability to do as I please with whomever I choose."
 
@@ -390,7 +382,7 @@ label PickYourPartner:
             jump DateGoneril
         "Hamlet": 
             jump DateHamlet
-        "Isabella":
+        "Isabella (Unfinished Art)":
             jump DateIsabella
         "Iago":
             jump DateIago
@@ -471,7 +463,7 @@ label DateRosalind:
 # START GONERIL SECTION /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
 label GonerilDate:
 
-show Goneril basic
+show Goneril smile
 
 "A young woman walks around the curtain, head held high, nose prominent yet in a unique but intense beauty."
 
@@ -1023,11 +1015,15 @@ label HamletFailure:
 # START ISABELLA
 label IsabellaDate:
 
+    show Isabella smile
+
     "The curtain draws to reveal a younger woman dressed head to toe in a black nun outfit, white outlining her face as an undergarment."
 
     "Her eyes shine bright as her defining feature standing out in contrast to the black that wraps around her."
 
     "Her face is more serious with a slight upturn of her lips, as she greets you for the first time..."
+
+    show Isabella talking
 
     i "Hello, I'm Isabella. It's nice to put face to the voice I've been listening to. I do have a couple questions to ask you to see if we'd be a good fit."
 
@@ -1168,6 +1164,8 @@ label IsabellaQ3_3:
 
 label IsabellaQ4:
 
+    show Isabella talking
+
     i "I will have to say, you have to keep this between us of course but if you continue to or start answering my questions correctly, you'd have the keys to my chastity (It's not gonna be locked for that long.. potentially)"
 
     menu:
@@ -1185,11 +1183,15 @@ label IsabellaQ4:
 
 label IsabellaQ4_1:
 
+    show Isabella smile
+
     i "hmm I find myself agreeing with you, glad we can agree and stay on the same page... my keys are getting closer to being yours."
 
     jump IsabellaQ5
 
 label IsabellaQ4_2:
+
+    show Isabella talking
 
     i "I can understand what you're saying, they should try and figure it out themselves, but sometimes you must lean on those around you or those above in the heavens..."
 
@@ -1197,11 +1199,15 @@ label IsabellaQ4_2:
 
 label isabellaQ4_3:
 
+    show Isabella upset
+
     i "So an only child, if that wasn't obvious before it certainly is now, quite self centered if I must say."
 
     jump IsabellaQ5
 
 label IsabellaQ5:
+
+    show Isabella talking
 
     i "I have one final question for you, I feel like I've slowly started to open your doors and see within. I must say I’ve learned a lot and maybe just maybe you’ll get lucky and we can spend a lovely evening walking the gardens outside my church."
 
@@ -1219,17 +1225,24 @@ label IsabellaQ5:
             jump isabellaQ5_3
 
 label IsabellaQ5_1:
+
+    show Isabella upset
+
     i "Unfortunately I would have to disagree with that idea, sounds like my kind of nightmare."
 
     jump IsabellaEndQuestions
 
 label IsabellaQ5_2:
 
-    i "At least you’re trying to make me feel special. Though how can I believe you?"
+    show Isabella talking
+
+    i "At least you're trying to make me feel special. Though how can I believe you?"
 
     jump IsabellaEndQuestions
 
 label IsabellaQ5_3:
+
+    show Isabella smile
 
     i "That sounds like quite a lovely evening, I can easily see this working."
 
@@ -1243,6 +1256,9 @@ label IsabellaEndQuestions:
         jump IsabellaFailure
 
 label IsabellaSuccess:
+
+    show Isabella smile
+
     "You answered enough questions correctly to peak Isabella's interest!"
 
     i "I'm really happy we are going to speak, I'd love you to accompany me to these lovely gardens where we can continue to discuss our morals and beliefs."
@@ -1250,6 +1266,8 @@ label IsabellaSuccess:
     jump StoryEndWin
 
 label IsabellaFailure:
+
+    show Isabella upset
 
     "Unfortunately Isabella does not see this as a match."
 
@@ -1265,10 +1283,14 @@ label IsabellaFailure:
         
 label IagoDate:
 
+    show Iago smug
+
     "An older man with a  tall and muscular build. He wears his long hair in a clean and sophisticated bun. His face is constantly in an etiquette yet question manner, as if constantly thinking of his next move."
 
     " A clean attire and almost completely shaven face, with a sharp mustache and goatee framing his jaw. The clothes loosely fit his frame while still allowing others to see his strength, garnished with a delicate flower."
 
+
+    show Iago talking
     menu: 
         a "Would you stand by my side no matter what?"
 
@@ -1284,21 +1306,29 @@ label IagoDate:
 
 label IagoQ1_1:
 
+    show Iago smug
+
     a "Good, smart answer."
     jump IagoQ2
 
 label IagoQ1_2:
+
+    show Iago annoyed
 
     a " You seem too hesitant, I don't like that."
     jump IagoQ2
 
 label IagoQ1_3:
 
+    show Iago talking
+
     a "You're clever, maybe too clever."
 
     jump IagoQ2
 
 label IagoQ2:
+
+    show Iago talking
 
     menu: 
         a "Are people still good, if they commit heinous acts for good reasons?"
@@ -1307,7 +1337,7 @@ label IagoQ2:
             $ LoveScore += 0
             jump IagoQ2_1
         "No, people are only good if they become the bigger person. (-10)":
-            $ Lovescore -= 10
+            $ LoveScore -= 10
             jump IagoQ2_2
         "If someone wrongs you, then you have the right to get them back. (+10)":
             $ LoveScore += 10
@@ -1316,23 +1346,31 @@ label IagoQ2:
 
 label IagoQ2_1:
 
-    a "That is all up to opinion, is not."
+    show Iago talking
+
+    a "That is all up to opinion, is it not?"
 
     jump IagoQ1_3
 
 label IagoQ2_2:
 
+    show Iago annoyed
+
     a "That mindset is weak."
 
     jump IagoQ1_3
 
-label iagoQ2_3:
+label IagoQ2_3:
+
+    show Iago smug
 
     a "A true leader's understanding."
 
     jump IagoQ3
 
 label IagoQ3:
+
+    show Iago talking
 
     menu: 
         a "Do you think love is about connection, or control?"
@@ -1349,11 +1387,15 @@ label IagoQ3:
 
 label IagoQ3_1:
 
+    show Iago annoyed
+
     a "What do you truly know about love then?"
 
     jump IagoQ4
 
 label IagoQ3_2:
+
+    show Iago talking
 
     a "I am a very helpful man."
 
@@ -1361,11 +1403,15 @@ label IagoQ3_2:
 
 label IagoQ3_3:
 
+    show Iago smug
+
     a "Exactly, if you trust me, then let me lead."
 
     jump IagoQ4
 
 label IagoQ4:
+
+    show Iago talking
 
     menu:
         a "How much of yourself would you give up, if it meant you would be chosen?"
@@ -1381,20 +1427,28 @@ label IagoQ4:
 
 label IagoQ4_1:
 
+    show Iago talking
+
     a "Dire circumstances cause dire sacrifices."
     jump IagoQ5
 
 label IagoQ4_2:
+
+    show Iago annoyed
 
     a "Weakness isn't cute."
     jump IagoQ5
 
 label IagoQ4_3:
 
+    show Iago smug
+
     a "I like that you can wage for power."
     jump IagoQ5
 
 label IagoQ5:
+
+    show Iago talking
 
     menu: 
         a "When people look at me, they see a man who's simple. Do you fall for people's images or what lies beneath?"
@@ -1410,15 +1464,21 @@ label IagoQ5:
 
 label IagoQ5_1:
 
+    show Iago annoyed
+
     a "You are very confident, aren't you?"
     jump IagoEndQuestions
 
 label IagoQ5_2:
 
+    show Iago smug
+
     a "I can tell you have a lot of layers to yourself."
     jump IagoEndQuestions
 
 label IagoQ5_3:
+
+    show Iago talking
 
     a "Just like a fly in honey."
     jump IagoEndQuestions
@@ -1426,14 +1486,45 @@ label IagoQ5_3:
 
 label IagoEndQuestions:
 
+    if LoveScore >= 30:
+        jump IagoSuccess
+    else:
+        jump IagoFailure
+
+
+label IagoFailure:
+
+    show Iago upset
+
+    "You failed to romance Iago. Once the timer for questions dings Iago leaves the room."
+
+    "You're left standing alone in your spot, feeling almost better than you did before knowing Iago is going to leave and you'll never see him again."
+
+    jump StoryEndLose
+label IagoSuccess:
+
+    show Iago smug
+
+    "As the question period ends Iago approaches you and takes your hand, leading you behind the stage."
+
+    "You have successfully romanced Iago"
+    jump StoryEndWin
+
+
 # END IAGO
+
+# START BASSANIO
 
 
 label BassanioDate:
 
+    show Bassanio smile
+
     "A tall man, with a muscular build. Not too many thoughts behind his eyes, but a spark of fiery life. A 24/7 smirk lies across his face as he stands shirtless, showing off his best assets. His brown messy hair lays across his face, framing just enough, so you can never see the full picture."
 
 label BassanioQ1: 
+
+    show Bassanio talking
     menu:
         b "Would you still love me if I lost my 6-pack?"
 
@@ -1447,7 +1538,9 @@ label BassanioQ1:
             $ LoveScore += 10
             jump BassQ1_1
 
-label BassQ1_1:
+label BassQ1_1: 
+
+    show Bassanio unimpressed
 
     b "Ahhh, I love that...not."
 
@@ -1455,17 +1548,23 @@ label BassQ1_1:
 
 label BassQ1_2:
 
+    show Bassanio talking
+
     b "Understandable, me too."
 
     jump BassQ2
 
 label BassQ1_3:
 
+    show Bassanio smile
+
     b "Ding Ding, you are smart as you are pretty."
 
     jump BassQ2
 
 label BassQ2:
+
+    show Bassanio talking
 
     menu: 
         b "Wouldst thou be impressed if my horse were, how do you say, metaphorical?"
@@ -1481,21 +1580,30 @@ label BassQ2:
 
 label BassQ2_1:
 
+    show Bassanio talking
+
     b "They say money doesn't buy you happiness, and they are hitting that from every angle, because I'm happy as shit."
 
     jump BassQ3
 label BassQ2_2:
+
+    show Bassanio unimpressed
 
     b "Um, duh... whore"
 
     jump BassQ3
 label BassQ2_3:
 
+    show Bassanio yurr
+
     b "You mean, we got daddy's money."
 
     jump BassQ3
 
 label BassQ3:
+
+    show Bassanio talking
+
     menu:
         b "Lets say you have to hypothetically be a third wheel all the time with my boy Antonio and I, you cool with that?"
 
@@ -1511,20 +1619,28 @@ label BassQ3:
 
 label BassQ3_1:
 
+    show Bassanio unimpressed
+
     b "*cough cough* center of attention much (or needy bitch) *cough cough*"
     jump BassQ4
 
 label BassQ3_2:
+
+    show Bassanio talking
 
     b "Eh okay, you can tag along"
     jump BassQ4
 
 label BassQ3_3:
 
+    show Bassanio yurr
+
     b "As we should"
     jump BassQ4
 
 label BassQ4:
+
+    show Bassanio talking
 
     menu: 
         b "Are you familiar with the courting process?"
@@ -1541,20 +1657,28 @@ label BassQ4:
 
 label BassQ4_1:
 
+    show Bassanio talking
+
     b "I see, so is it by choice or..."
     jump BassQ5
 
 label BassQ4_2:
+
+    show Bassanio unimpressed
 
     b "You look the type for that."
     jump BassQ5
 
 label BassQ4_3:
 
+    show Bassanio yurr
+
     b "You callin me hot? ;)"
     jump BassQ5
 
 label BassQ5:
+
+    show Bassanio talking
 
     menu: 
         b "Do you think we'd argue over real stuff, or pretend to hate each other for tension?"
@@ -1570,16 +1694,22 @@ label BassQ5:
 
 label BassQ5_1:
 
+    show Bassanio talking
+
     b "Woah there, that's a little deep don't ya think?"
 
     jump BassQuestionsEnd
 
 label BassQ5_2:
 
+    show Bassanio unimpressed
+
     b "You're a problem."
     jump BassQuestionsEnd
 
 label BassQ5_3:
+
+    show Bassanio yurr
 
     b "See? You get it."
     jump BassQuestionsEnd
@@ -1587,7 +1717,24 @@ label BassQ5_3:
 
 label BassQuestionsEnd:
 
+    if LoveScore >= 30:
+        jump BassSuccess
+    else:
+        jump BassFailure
 
+label BassSuccess:
+
+    show Bassanio Yurr
+
+    "You succeeded in romancing Bassanio!"
+    jump StoryEndWin
+
+label BassFailure:
+
+    show Bassanio unimpressed
+
+    "You failed to romace Bassanio."
+    jump StoryEndLose
 
 
 
@@ -1596,6 +1743,290 @@ label BassQuestionsEnd:
 
 label RosalindDate:
 
+    show Rosalind talking
+
+    r "So I am your final choice? A wise one but I'm not about to give myself to you easily."
+
+    r "Turn around."
+
+    "Her voice is forceful. She waits to see you turn the other way. As you do so, you hear the sound of clothes being shuffled frantically."
+
+    hide Rosalind
+
+    "A new voice can be heard from the same direction. It's similar to the girl's voice but much deeper, gruffer."
+
+    show Ganymeade smile
+
+    "Turning around, you can see a boyish man. His attire hides most of his body. His face is adorned by shining auburn hair. He smiles confidently at you."
+
+    show Ganymeade talking
+
+    gany "My name is Ganymede. I am an acquaintance of the girl you desire to court."
+
+    menu:
+        gany "I'll be testing to see if you are worthy to attain her hand."
+
+        "This is too much work. There's no way I'm doing this for a girl I haven't even met. (-10)":
+            $ LoveScore -= 20
+            jump RQ1_1
+        "Ohh okay that's fun, I'll play along I guess. (+5)":
+            $ LoveScore += 5
+            jump RQ1_2
+        "You are so hot… Let's make out. (+10)":
+            $ LoveScore += 10
+            jump RQ1_3
+
+label RQ1_1:
+
+    show Ganymeade upset
+
+    gany "I see you are not willing to pursue her..." #This line was unfinished...
+    jump RQ2
+
+label RQ1_2:
+
+    show Ganymeade smile
+
+    gany "Good! I'll teach you everything you need to know about love."
+    jump RQ2
+
+label RQ1_3:
+
+    show Ganymeade yell
+
+    gany "No!!! You are supposed to wanna make out with the girl, not me!"
+
+    "Ganymede's cheeks blush. It doesn't seem like he entirely dislikes the idea."
+
+    jump RQ2
+
+label RQ2:
+
+    show Ganymeade talking
+
+    gany "It is an unusual situation but I am here for one reason and one reason only, to understand whether you truly are in love or not."
+
+    gany "Love is merely a madness, and, I tell you, deserves as well a dark house and a whip as madmen do; and the reason why they are not so punished and cured is that the lunacy is so ordinary that the whippers are in love too."
+
+    gany "profess we may cure it by counsel. I have cured one person before through pretending to be his mistress, that's what I'll do to you."
+
+    menu: 
+        gany "From now on call me Rosalind. That's the name of the woman you desire. Act with me in the same manner you would act with her."
+
+        "I really don't think my love for you can be cured. My fair Rosalind, this love will last until the end of time. (+10)":
+            $ LoveScore += 10
+            jump RQ2_1
+        "Okay… So I'll call you Rosalind. Wanna make out now? (+5)":
+            $ LoveScore += 5
+            jump RQ2_2
+        "Can't we just be done with this and move on to the part where I meet the real Rosalind? (-5)":
+            $ LoveScore -= 5
+            jump RQ2_3
+
+label RQ2_1:
+
+    show Ganymeade smile
+
+    gany "That's so cheesy!!"
+
+    "Ganymede is clearly blushing."
+
+    jump RQ3
+
+label RQ2_2:
+
+    show Ganymeade yell
+
+    gany "Wait!! I'm not the real Rosalind, remember? I like your passion but don't kiss me yet!"
+
+    jump RQ3
+
+label RQ2_3:
+
+    show Ganymeade upset
+
+    gany "But I am the real Rosalind! Consider me her."
+
+    jump RQ3
+
+label RQ3:
+
+    show Ganymeade talking
+
+    gany "Come on! Show some enthusiasm. Woo me, woo me! What would you say to me now if I were your very, very Rosalind?"
+
+    menu:
+
+        "I would kiss before I spoke. (+5)":
+            $ LoveScore += 5
+            jump RQ3_1
+        "Recite bad poetry. (+10)":
+            $ LoveScore += 10
+            jump RQ3_2
+        "Rosalind you are so pretty haha (+0)":
+            $ LoveScore += 0
+            jump RQ3_3
+
+label RQ3_1:
+
+    show Ganymeade talking
+
+    gany "Nay, you were better to speak first, and when you were gravelled for lack of matter, you might take occasion to kiss. For lovers lacking—God warn us—matter, the cleanliest shift is to kiss."
+
+    jump RQ4
+
+label RQ3_2:
+
+    show Ganymeade smile
+
+    gany "Your enthusiasm is noted… I do enjoy poetry from time to time, even when there are more feet than the verses could bear."
+
+    jump RQ4
+
+label RQ3_3:
+
+    show Ganymeade surprised
+
+    gany "Wait, really?"
+
+    show Ganymeade yell
+
+    gany "No! Compliment my personality before my appearance!"
+
+label RQ4:
+
+    show Ganymeade talking
+
+    "This really isn't working out as intented..."
+
+    gany "Enough! I'll reveal who I am."
+
+    hide Ganymeade
+
+    "Ganymede takes off his boyish clothes. He, or she, takes a wholly different appearance, with a humble woman's outfit and a face still androgynous but much tender."
+
+    show Rosalind talking
+
+    r "I have been your suitor all along. I'm Rosalind."
+
+    menu:
+
+        "So I'm not leaving this place kissing a hot twink? Disappointing… (+0)":
+            $ LoveScore += 0
+            jump RQ4_1
+        "Woahh you are even better than Ganymede. (+5)":
+            $ LoveScore += 5
+            jump RQ4_2
+        "Wait, you were lying to me so you could test if I was a good match??? Not cool, not cool. (-10)":
+            $ LoveScore -= 10
+            jump RQ4_3
+
+label RQ4_1:
+
+    show Rosalind yell
+
+    r "Wait, wait! I still have the costume, don't leave yet!"
+
+    jump RQ5
+
+label RQ4_2:
+
+    show Rosalind smile
+
+    r "I sure do hope so!"
+
+    jump RQ5
+
+label RQ4_3:
+
+    show Rosalind upset
+
+    r "It's not that bad!! Come on…"
+
+    jump RQ5
+
+label RQ5:
+
+    show Rosalind talking
+
+    r "I vow to you you won't regret this, I have found you to be an interesting suitor but one question holds most importance."
+
+    r "I believe in what I said earlier. Love is madness. Why should we court each other when love is only appearance, lasts much less than forever, and won't ever hold true?"
+
+    menu:
+
+        "We are both attracted to each other, we want to make this work. Is that not more than enough? (+10)":
+            $ LoveScore += 10
+            jump RQ5_1
+        "I'll give you as much money and power as you need. You'll never have to worry about that ever again! (-10)":
+            $ LoveScore -= 10
+            jump RQ5_2
+        "I don't really care about that, I just wanna make out with you while you are dressed up as a dude. (+0)":
+            $ LoveScore += 0
+            jump RQ5_3
+
+label RQ5_1:
+
+    show Rosalind smile
+
+    r "Perhaps they are."
+
+    jump RosalindENDQUESTIONS
+
+label RQ5_2:
+
+    show Rosalind upset
+
+    r "I don’t care about those. They only corrupt human nature."
+
+    jump RosalindENDQUESTIONS
+
+label RQ5_3:
+
+    show Rosalind talking
+
+    r "You know what? Fair enough."
+
+    jump RosalindENDQUESTIONS
+
+label RosalindENDQUESTIONS:
+
+    show Rosalind talking
+
+    r "This is it. I know what I shall do with you."
+
+    if LoveScore >= 30:
+        jump RosalindSuccess
+    else:
+        jump RosalindFailure
+
+label RosalindSuccess:
+
+    show Rosalind upset
+
+    r "You have a certain charm about you. Your flirtyness, your jokes, they entertain me and I can't say I don't find you attractive."
+
+    r "Run away with me! Come to the forest of Arden! We can live a nice happy life away from the troubles of society and the dude who wants to kill me!"
+
+    "You say yes with no doubt in your mind. Rosalind and you move to the forest where you pretend to be simple pastors."
+
+    "Her dad gives the blessing to your marriage and you spend the rest of your life living in a cozy cottage in the middle of the woods alongside Rosalind. What a beautiful end!"
+
+label RosalindFailure:
+
+    show Rosalind smile
+
+    r "You’re dumped. Sorry, but we just didn’t really have any chemistry together"
+
+    r "Don’t worry! Love isn’t real anyways so it’s fine that this happened, it only means you get to go after someone else like all of the other beautiful people that were in this show."
+
+    r "As for me, I gotta run away! My uncle wants to kill me so I need to hide in the forest!"
+
+    hide Rosalind
+
+    "You never see Rosalind again. Apparently, as she hid in the forest her uncle converted to Christianity and decided to give her father back the throne. She became rich, married a hot dude, and never had any problem in her life."
+
+    "You can’t say you are not jealous but unfortunately, there’s nothing you can do."
 
 
 
